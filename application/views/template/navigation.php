@@ -102,7 +102,7 @@
                             <a href="support_tickets.php"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                            <a href="<?php echo base_url("index.php/Users/edit_account"); ?>"><i class="fa fa-fw fa-gear"></i> Edit Account</a>
                         </li>
                         <li class="divider"></li>
                         <li>
@@ -115,7 +115,7 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="active">
-                        <a href="index.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                        <a href="<?php echo base_url("index.php/Welcome/"); ?>"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>
                      <li>
                         <a href="users.php"><i class="fa fa-fw fa-bar-chart-o"></i> Manage Freebies</a>
@@ -124,12 +124,24 @@
                         <a href="offers.php"><i class="fa fa-fw fa-wrench"></i> Manage Offers</a>
                     </li>
                     
-
-                         <li>
-                        <a href="access.php?type=logout"><i class="fa fa-fw fa-power-off"></i> Logout</a>
-                    </li>
                     
-
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-users"></i> User Management <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo" class="collapse">
+                            <li>
+                                <a href="<?php echo base_url("index.php/Users/"); ?>">Manage Users</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url("index.php/Users/vetenary"); ?>">Vetenary Staff</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url("index.php/Users/admin"); ?>">Administrators</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url("index.php/Users/manager"); ?>">Managers</a>
+                            </li>
+                        </ul>
+                    </li>
                     
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i>etc Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
@@ -143,7 +155,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="blank-page.php"><i class="fa fa-fw fa-file"></i>etc Blank Page</a>
+                        <a href="<?php echo base_url("index.php/User_Auth/logout"); ?>"><i class="fa fa-fw fa-power-off"></i> Logout</a>
                     </li>
                   
                 </ul>
