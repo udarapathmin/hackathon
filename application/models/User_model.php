@@ -23,6 +23,35 @@ class User_model extends CI_Model {
     public function listusers(){
         $this->db->select('*');
         $this->db->from('users');
+        $this->db->where('user_type', 'A');
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+    }
+
+     public function listmanager(){
+        $this->db->select('*');
+        $this->db->from('users');
+        $this->db->where('user_type', 'M');
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+    }
+
+    public function listveteran(){
+        $this->db->select('*');
+        $this->db->from('users');
+        $this->db->where('user_type', 'V');
 
         $query = $this->db->get();
 
@@ -40,6 +69,25 @@ class User_model extends CI_Model {
         $query = $this->db->query($sql);
         if ($query->num_rows() == 0){
             if ($this->db->insert('users', $user)) {
+                return TRUE;
+            } else {
+                return FALSE;
+            }
+        } else{
+            return FALSE;
+        }
+    }
+
+    public function addveteran($user, $vet) {
+        $username = $user['name'] ;
+        $email = $user['email'] ;
+        $sql = "SELECT * FROM users WHERE username ='$username' OR email = '$email'";
+        $query = $this->db->query($sql);
+        if ($query->num_rows() == 0){
+            if ($this->db->insert('users', $user)) {
+                $insert_id = $this->db->insert_id();
+                $vet['userid'] = $insert_id;
+                $this->db->insert('veteran', $vet);
                 return TRUE;
             } else {
                 return FALSE;
@@ -68,6 +116,16 @@ class User_model extends CI_Model {
         $this->db->limit(1);
 
         $query = $this->db->get();
+
+        if ($query->num_rows() == 1) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+    }
+
+    public function viewvet($id){
+        $query = $this->db->query("SELECT * FROM users u,veteran v WHERE u.id='$id' and v.userid=u.id LIMIT 1");
 
         if ($query->num_rows() == 1) {
             return $query->result();

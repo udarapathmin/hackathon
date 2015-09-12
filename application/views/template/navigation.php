@@ -129,16 +129,16 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-users"></i> User Management <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
-                                <a href="#">Operational Staff</a>
+                                <a href="<?php echo base_url("index.php/Users/staff"); ?>">Operational Staff</a>
                             </li>
                             <li>
-                                <a href="#">Vetenary Staff</a>
+                                <a href="<?php echo base_url("index.php/Users/vetenary"); ?>">Vetenary Staff</a>
                             </li>
                             <li>
                                 <a href="<?php echo base_url("index.php/Users/admin"); ?>">Administrators</a>
                             </li>
                             <li>
-                                <a href="#">Managers</a>
+                                <a href="<?php echo base_url("index.php/Users/manager"); ?>">Managers</a>
                             </li>
                         </ul>
                     </li>

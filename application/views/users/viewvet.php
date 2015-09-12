@@ -12,7 +12,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            View Veteran
+                            View User
                             <!-- <small>Subheading</small> -->
                         </h1>
                         
@@ -54,6 +54,18 @@
                                   <tr>
                                     <td><b>Email:</b></td>
                                     <td><?php echo $row->email; ?></td>
+                                  </tr>
+                                   <tr>
+                                    <td><b>Position:</b></td>
+                                    <td><?php echo $row->position; ?></td>
+                                  </tr>
+                                   <tr>
+                                    <td><b>Description:</b></td>
+                                    <td><?php echo $row->description; ?></td>
+                                  </tr>
+                                   <tr>
+                                    <td><b>Date of Appoinmnet:</b></td>
+                                    <td><?php echo $row->dateofappoinment; ?></td>
                                   </tr>
                                   
 

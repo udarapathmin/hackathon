@@ -49,6 +49,33 @@ class Users extends CI_Controller {
 		$this->load->view('template/footer', $data);
 	}
 
+    public function manager()
+    {
+        if (!$this->session->userdata('logged_in')) {
+            redirect('login', 'refresh');
+        }
+
+        $data['page_title'] = "Manager Management";
+
+        $this->load->view('template/header', $data);
+        $this->load->view('users/manager', $data);
+        $this->load->view('template/footer', $data);
+    }
+
+
+    public function vetenary()
+    {
+        if (!$this->session->userdata('logged_in')) {
+            redirect('login', 'refresh');
+        }
+
+        $data['page_title'] = "Manager Management";
+
+        $this->load->view('template/header', $data);
+        $this->load->view('users/vetenary', $data);
+        $this->load->view('template/footer', $data);
+    }
+
 	//List Admin
 	public function list_admin()
 	{
@@ -63,6 +90,36 @@ class Users extends CI_Controller {
 		$this->load->view('users/listadmin', $data);
 		$this->load->view('template/footer', $data);
 	}
+
+    //List Admin
+    public function list_veteran()
+    {
+        if (!$this->session->userdata('logged_in')) {
+            redirect('login', 'refresh');
+        }
+
+        $data['page_title'] = "List Admins";
+        $data['userslist'] = $this->User_Model->listveteran();
+
+        $this->load->view('template/header', $data);
+        $this->load->view('users/listveteran', $data);
+        $this->load->view('template/footer', $data);
+    }
+
+    //List Manager
+    public function list_manager()
+    {
+        if (!$this->session->userdata('logged_in')) {
+            redirect('login', 'refresh');
+        }
+
+        $data['page_title'] = "List Manager";
+        $data['userslist'] = $this->User_Model->listmanager();
+
+        $this->load->view('template/header', $data);
+        $this->load->view('users/listmanager', $data);
+        $this->load->view('template/footer', $data);
+    }
 
 	//Add Admin
 	function add_admin() {
@@ -110,6 +167,112 @@ class Users extends CI_Controller {
                 $this->load->view('template/header', $data);
 				$this->load->view('users/addadmin', $data);
 				$this->load->view('template/footer', $data);              
+            }
+        }
+    }
+
+    //Add Admin
+    function add_manager() {
+       if (!$this->session->userdata('logged_in')) {
+            redirect('login', 'refresh');
+        }
+
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('username', 'username', "trim|required|xss_clean|min_length[5]|alpha_dash");
+        $this->form_validation->set_rules('email', 'email', "trim|required|xss_clean|valid_email");
+        $this->form_validation->set_rules('firstname', 'first name', "trim|required|xss_clean|alpha");
+        $this->form_validation->set_rules('lastname', 'last name', "trim|required|xss_clean|alpha");
+        $this->form_validation->set_rules('password', 'password', "trim|required|xss_clean");
+        $this->form_validation->set_rules('cpassword', 'confirm password', "required|xss_clean|matches[password]");
+
+
+        $data['page_title'] = "Manager Management";
+
+        //Run form validation
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('template/header', $data);
+            $this->load->view('users/addmanager', $data);
+            $this->load->view('template/footer', $data);
+        } else{
+            $user_data = array(
+                'username' => $this->input->post('username'),
+                'email' => $this->input->post('email'),
+                'name' => $this->input->post('firstname'),
+                'last_name' => $this->input->post('lastname'),
+                'password' => md5($this->input->post('password')),
+                'user_Type' => 'M',
+                'updated' => date('Y-m-d h:i:s a', time())
+            );
+
+            //calling model
+            if($this->User_Model->adduser($user_data)){
+                //Success Message
+                $data['succ_message'] = 'Successfully Added New Manager';
+                $this->load->view('template/header', $data);
+                $this->load->view('users/addmanager', $data);
+                $this->load->view('template/footer', $data);
+            } else{
+                $data['error_message'] = 'Failed to Add New Manager, Username or Email already exists';
+
+                $this->load->view('template/header', $data);
+                $this->load->view('users/addmanager', $data);
+                $this->load->view('template/footer', $data);              
+            }
+        }
+    }
+
+    //Add Admin
+    function add_veteran() {
+       if (!$this->session->userdata('logged_in')) {
+            redirect('login', 'refresh');
+        }
+
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('username', 'username', "trim|required|xss_clean|min_length[5]|alpha_dash");
+        $this->form_validation->set_rules('email', 'email', "trim|required|xss_clean|valid_email");
+        $this->form_validation->set_rules('firstname', 'first name', "trim|required|xss_clean|alpha");
+        $this->form_validation->set_rules('lastname', 'last name', "trim|required|xss_clean|alpha");
+        $this->form_validation->set_rules('password', 'password', "trim|required|xss_clean");
+        $this->form_validation->set_rules('cpassword', 'confirm password', "required|xss_clean|matches[password]");
+
+
+        $data['page_title'] = "Vetenary Management";
+
+        //Run form validation
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('template/header', $data);
+            $this->load->view('users/addveteran', $data);
+            $this->load->view('template/footer', $data);
+        } else{
+            $user_data = array(
+                'username' => $this->input->post('username'),
+                'email' => $this->input->post('email'),
+                'name' => $this->input->post('firstname'),
+                'last_name' => $this->input->post('lastname'),
+                'password' => md5($this->input->post('password')),
+                'user_Type' => 'V',
+                'updated' => date('Y-m-d h:i:s a', time())
+            );
+
+            $veteran_data = array(
+                    'dateofappoinment' => $this->input->post('dateofappoinment'),
+                    'position' => $this->input->post('position'),
+                    'description' => $this->input->post('description'),
+                );
+
+            //calling model
+            if($this->User_Model->addveteran($user_data, $veteran_data)){
+                //Success Message
+                $data['succ_message'] = 'Successfully Added New Veteran';
+                $this->load->view('template/header', $data);
+                $this->load->view('users/addveteran', $data);
+                $this->load->view('template/footer', $data);
+            } else{
+                $data['error_message'] = 'Failed to Add New Veteran, Username or Email already exists';
+
+                $this->load->view('template/header', $data);
+                $this->load->view('users/addveteran', $data);
+                $this->load->view('template/footer', $data);              
             }
         }
     }
@@ -211,6 +374,32 @@ class Users extends CI_Controller {
                  $this->load->view('template/header', $data);
 	            $this->load->view('users/viewuser');
 	            $this->load->view('template/footer');               
+            }
+    }
+
+    function view_vet($id) {
+        if (!$this->session->userdata('logged_in')) {
+            redirect('login', 'refresh');
+        }
+
+        $data['navbar'] = "user";
+
+        $data['page_title'] = 'View User';
+        $data['name'] = $this->session->userdata('name');
+        
+        if($this->User_Model->viewvet($id)){
+                //Call the model to get users list
+                $data['user'] = $this->User_Model->viewvet($id);
+
+                 $this->load->view('template/header', $data);
+                $this->load->view('users/viewvet');
+                $this->load->view('template/footer'); 
+            } else{
+                $data['error_message'] = 'No user found';
+
+                 $this->load->view('template/header', $data);
+                $this->load->view('users/viewvet');
+                $this->load->view('template/footer');               
             }
     }
 }
