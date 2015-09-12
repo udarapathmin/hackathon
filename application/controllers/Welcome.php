@@ -20,6 +20,14 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		if (!$this->session->userdata('logged_in')) {
+            redirect('login', 'refresh');
+        }
+
+        $data['page_title'] = "Dashboard";
+
+		$this->load->view('template/header', $data);
+		$this->load->view('welcome_message', $data);
+		$this->load->view('template/footer', $data);
 	}
 }
