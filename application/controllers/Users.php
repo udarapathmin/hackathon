@@ -32,7 +32,7 @@ class Users extends CI_Controller {
         $data['page_title'] = "User Management";
 
 		$this->load->view('template/header', $data);
-		$this->load->view('users/admin', $data);
+		$this->load->view('users/user', $data);
 		$this->load->view('template/footer', $data);
 	}
 
