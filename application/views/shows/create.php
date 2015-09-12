@@ -30,74 +30,85 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <form class="form-horizontal">
+                    <?php
+                    $attributes = array('class' => 'form-horizontal');
+                    echo form_open('', $attributes);
+                    ?>
 
-                        <!-- Text input-->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="show_name">Show Name</label>  
-                            <div class="col-md-4">
-                                <input id="show_name" name="show_name" type="text" placeholder="Enter Show Name" class="form-control input-md">
-                                <span class="help-block"></span>  
-                            </div>
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="show_name">Show Name</label>  
+                        <div class="col-md-4">
+                            <input id="show_name" name="show_name" type="text" placeholder="Enter Show Name" class="form-control input-md">
+                            <span class="help-block"></span>  
                         </div>
+                    </div>
 
-                        <!-- Textarea -->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="show_desc">Show Description</label>
-                            <div class="col-md-4">                     
-                                <textarea class="form-control" id="show_desc" name="show_desc" placeholder="Enter show description here"></textarea>
-                                <span class="help-block"></span> 
-                            </div>
+                    <!-- Textarea -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="show_desc">Show Description</label>
+                        <div class="col-md-4">                     
+                            <textarea class="form-control" id="show_desc" name="show_desc" placeholder="Enter show description here"></textarea>
+                            <span class="help-block"></span> 
                         </div>
+                    </div>
 
-                        <!-- Prepended text-->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="ticket_price">Ticket Price</label>
-                            <div class="col-md-4">
-                                <div class="input-group">
-                                    <span class="input-group-addon">Rs.</span>
-                                    <input id="ticket_price" name="ticket_price" class="form-control" placeholder="0.00" type="text">
-                                </div>
-                                <p class="help-block"></p>
+                    <!-- Prepended text-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="ticket_price">Ticket Price</label>
+                        <div class="col-md-4">
+                            <div class="input-group">
+                                <span class="input-group-addon">Rs.</span>
+                                <input id="ticket_price" name="ticket_price" class="form-control" placeholder="0.00" type="text">
                             </div>
+                            <p class="help-block"></p>
                         </div>
+                    </div>
 
-                        <!-- Text input-->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="start_time">Start Time</label>  
-                            <div class="col-md-4">
-                                <input id="start_time" name="start_time" type="text" placeholder="Enter Start Time" class="form-control input-md">
-                                <span class="help-block"></span>  
-                            </div>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="start_time">Start Time</label>  
+                        <div class="col-md-4">
+                            <input id="start_time" name="start_time" type="date" placeholder="Enter Start Time" class="form-control input-md">
+                            <span class="help-block"></span>  
                         </div>
+                    </div>
 
-                        <!-- Text input-->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="end_time">End Time</label>  
-                            <div class="col-md-4">
-                                <input id="end_time" name="end_time" type="text" placeholder="Enter End Time" class="form-control input-md">
-                                <span class="help-block"></span>  
-                            </div>
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="end_time">End Time</label>  
+                        <div class="col-md-4">
+                            <input id="end_time" name="end_time" type="date" placeholder="Enter End Time" class="form-control input-md">
+                            <span class="help-block"></span>  
                         </div>
+                    </div>
 
-                        <!-- Button -->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="singlebutton">&nbsp;</label>
-                            <div class="col-md-4">
-                                <button type="submit" id="singlebutton" name="singlebutton" class="btn btn-success">Create</button>
-                            </div>
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="tickets_avail">Tickets Available</label>  
+                        <div class="col-md-4">
+                            <input id="tickets_avail" name="tickets_avail" type="text" placeholder="placeholder" class="form-control input-md">
                         </div>
+                    </div>
+                    <!-- Button -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="singlebutton">&nbsp;</label>
+                        <div class="col-md-4">
+                            <button type="submit" id="singlebutton" name="singlebutton" class="btn btn-success">Create</button>
+                        </div>
+                    </div>
 
-                    </form>
-                    <script type="text/javascript">
+                    <?php echo form_close(); ?>
+<!--                    <script type="text/javascript">
                         $(function () {
                             $('#start_time').datetimepicker();
                         });
-                        
+
                         $(function () {
                             $('#end_time').datetimepicker();
                         });
-                    </script>
+                    </script>-->
                 </div>
             </div>
             <!-- /.row -->

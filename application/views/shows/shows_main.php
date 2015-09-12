@@ -48,6 +48,7 @@
                                 <th>Ticket Price</th>
                                 <th>Seats Available</th>
                                 <th>Seats Boocked</th>
+                                <th>&nbsp;</th>
                             </tr>
                         </thead>
 
@@ -60,6 +61,7 @@
                                 <th>Ticket Price</th>
                                 <th>Seats Available</th>
                                 <th>Seats Boocked</th>
+                                <th>&nbsp;</th>
                             </tr>
                         </tfoot>
 
@@ -70,8 +72,18 @@
                                 <td><?php echo $show->name; ?></td>
                                 <td><?php echo $show->start_time; ?></td>
                                 <td><?php echo $show->end_time; ?></td>
+                                <td><?php echo "Rs. " . $show->ticket_price; ?></td>
                                 <td><?php echo $show->seats_available; ?></td>
                                 <td><?php echo $show->seats_booked; ?></td>
+                                <td>
+                                    <a href="<?php echo base_url("index.php/show_management/view/{$show->id}"); ?>">
+                                        <i class="fa fa-eye"></i>
+                                    </a>
+                                    &nbsp;
+                                    <a href="<?php echo base_url("index.php/show_management/view/{$show->id}"); ?>">
+                                        <i class="fa fa-trash-o"></i>
+                                    </a>
+                                </td>
                             </tr>
                             <?php } ?>
                         </tbody>
