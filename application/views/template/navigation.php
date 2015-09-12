@@ -12,7 +12,7 @@
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
-                <li class="dropdown">
+                <!-- <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
                     <ul class="dropdown-menu message-dropdown">
                         <li class="message-preview">
@@ -64,8 +64,8 @@
                             <a href="support_tickets.php">Read All New Messages</a>
                         </li>
                     </ul>
-                </li>
-                <li class="dropdown">
+                </li> -->
+              <!--   <li class="dropdown">
                     <a href="notices.php" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
                     <ul class="dropdown-menu alert-dropdown">
                         <li>
@@ -91,16 +91,16 @@
                             <a href="notices.php">View All</a>
                         </li>
                     </ul>
-                </li>
+                </li> -->
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="profile.php"><i class="fa fa-fw fa-user"></i> Profile</a>
                         </li>
-                        <li>
+<!--                         <li>
                             <a href="support_tickets.php"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="<?php echo base_url("index.php/Users/edit_account"); ?>"><i class="fa fa-fw fa-gear"></i> Edit Account</a>
                         </li>
@@ -117,11 +117,34 @@
                     <li class="active">
                         <a href="<?php echo base_url("index.php/Welcome/"); ?>"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>
-                     <li>
-                        <a href="users.php"><i class="fa fa-fw fa-bar-chart-o"></i> Manage Freebies</a>
+                    <li>
+                        <a href='<?php echo base_url("index.php/treatments"); ?>'><i class="fa fa-fw fa-stethoscope"></i> Treatments Management</a>
                     </li>
-                        <li>
+
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-github-alt"></i> Animal Management <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo" class="collapse">
+                            <li>
+                                <a href="<?php echo base_url("index.php/animal/"); ?>">Animal Management</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url("index.php/animal/animal_cat"); ?>">Animal Category</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url("index.php/animal/location"); ?>">Animal Location</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                   <!--  <li>
                         <a href="offers.php"><i class="fa fa-fw fa-wrench"></i> Manage Offers</a>
+                    </li> -->
+                    <li>
+                        <a href='<?php echo base_url("index.php/show_management"); ?>'><i class="fa fa-fw fa-ticket"></i> Shows Management</a>
+                    </li>
+
+                    <li>
+                        <a href='<?php echo base_url("index.php/shows"); ?>'><i class="fa fa-fw fa-film"></i> Current Shows</a>
                     </li>
                     
                     
@@ -143,17 +166,6 @@
                         </ul>
                     </li>
                     
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i>etc Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo" class="collapse">
-                            <li>
-                                <a href="#">Dropdown Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Dropdown Item</a>
-                            </li>
-                        </ul>
-                    </li>
                     <li>
                         <a href="<?php echo base_url("index.php/User_Auth/logout"); ?>"><i class="fa fa-fw fa-power-off"></i> Logout</a>
                     </li>
