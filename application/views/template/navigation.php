@@ -12,7 +12,7 @@
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
-                <li class="dropdown">
+                <!-- <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
                     <ul class="dropdown-menu message-dropdown">
                         <li class="message-preview">
@@ -64,8 +64,8 @@
                             <a href="support_tickets.php">Read All New Messages</a>
                         </li>
                     </ul>
-                </li>
-                <li class="dropdown">
+                </li> -->
+              <!--   <li class="dropdown">
                     <a href="notices.php" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
                     <ul class="dropdown-menu alert-dropdown">
                         <li>
@@ -91,16 +91,16 @@
                             <a href="notices.php">View All</a>
                         </li>
                     </ul>
-                </li>
+                </li> -->
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="profile.php"><i class="fa fa-fw fa-user"></i> Profile</a>
                         </li>
-                        <li>
+<!--                         <li>
                             <a href="support_tickets.php"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="<?php echo base_url("index.php/Users/edit_account"); ?>"><i class="fa fa-fw fa-gear"></i> Edit Account</a>
                         </li>
