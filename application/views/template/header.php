@@ -35,6 +35,9 @@
     
     <link href="http://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
     <script src="http://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-datetimepicker.min.css'); ?>" />
+    <script type="text/javascript" src="<?php echo base_url('assets/js/moment.js'); ?>"></script>
+    <script type="text/javascript" src="<?php echo base_url('assets/js/bootstrap-datetimepicker.min.js'); ?>"></script>
     
     
 </head>
