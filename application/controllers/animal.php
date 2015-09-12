@@ -35,10 +35,33 @@ class Animal extends CI_Controller {
             
             $this->Animal_Model->add_animals($name,$birth,$gender,$category);
             
+            redirect('animal','refresh');
+        }
+    }
+    
+    function animal_cat(){
+        $data['page_title'] = "Animal";
+        $this->load->view('/template/header', $data);
+        $this->load->view('animals/animal_category_form');
+        $this->load->view('/template/footer');
+    }
+    
+    function add_animal_category() {
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('category', 'Animal Category', 'required');
+
+        $this->form_validation->set_error_delimiters('<br /><span class="error">', '</span>');
+        if ($this->form_validation->run() == FALSE) {
             $data['page_title'] = "Animal";
             $this->load->view('/template/header', $data);
-            $this->load->view('animals/animal_form');
+            $this->load->view('animals/animal_category_form');
             $this->load->view('/template/footer');
+        } else {
+            $animal_category = $this->input->post('category');
+            
+            $this->Animal_Model->add_animal_category($animal_category);
+            
+            redirect('animal/animal_cat','refresh');
         }
     }
 

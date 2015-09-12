@@ -60,13 +60,13 @@
                                 <div class="form-group" style="margin-right:2em">
                                     <label for="inputEmail3" class="col-sm-2 control-label ">*Name</label>
                                     <div class="col-sm-4">
-                                        <input id="animname" type="text" name="animname"  value="<?php echo set_value('animname'); ?>" type="text" class="form-control" id="NIC" placeholder="NIC No">
-                                        <?php echo form_error('NIC'); ?>
+                                        <input id="animname" type="text" name="animname"  value="<?php echo set_value('animname'); ?>"  class="form-control"  placeholder="Animal Name">
+                                        <?php echo form_error('animname'); ?>
                                     </div>
                                     <label for="inputEmail3" class="col-sm-2 control-label">*Birth Day</label>
                                     <div class="col-sm-4">
 
-                                        <input id="birth" type="date" name="birth"  value="<?php echo set_value('birth'); ?>" type="text" class="form-control" id="birth" placeholder="Birth Day">
+                                        <input id="birth" type="date" name="birth"  value="<?php echo set_value('birth'); ?>" class="form-control" placeholder="Birth Day">
                                         <?php echo form_error('birth'); ?>
                                     </div>
                                 </div>
