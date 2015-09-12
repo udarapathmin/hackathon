@@ -27,6 +27,16 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <!-- jQuery -->
+    <script src="<?php echo base_url("assets/js/jquery.js"); ?>"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="<?php echo base_url("assets/js/bootstrap.min.js"); ?>"></script>
+    
+    <link href="http://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
+    <script src="http://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+    
+    
 </head>
 
 <body>
