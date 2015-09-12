@@ -19,6 +19,7 @@ class Show_management extends CI_Controller {
         $data['page_title'] = "Show Management";
         $data['shows'] = $this->show_model->get_shows();
         $this->load->library('form_validation');
+        $this->load->helper('form');
 
         $this->form_validation->set_rules('show_name', 'Show Name', 'required');
         $this->form_validation->set_rules('show_desc', 'Show Description', 'required');
@@ -38,9 +39,21 @@ class Show_management extends CI_Controller {
                 'start_time' => $this->input->post('start_time'),
                 'end_time' => $this->input->post('end_time'),
             );
-            
+
             $this->show_model->add_show($show);
             redirect('show_management', 'auto');
+        }
+    }
+
+    public function view($show_id) {
+        $data['show'] = $this->show_model->get_show($show_id);
+
+        if (!$data['show']) {
+            show_404();
+        } else {
+            $this->load->view('template/header', $data);
+            $this->load->view('shows/view_show', $data);
+            $this->load->view('template/footer', $data);
         }
     }
 

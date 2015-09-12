@@ -22,6 +22,21 @@ class Show_model extends CI_Model {
     }
     
     public function add_show($show){
-        
+        $this->db->insert('show', $show);
+        return TRUE;
+    }
+    
+    public function get_show($id){
+        $query = $this->db->get_where('show', array('id' => $id));
+        if($query->num_rows() == 0){
+            return FALSE;
+        } else {
+            return $query->row();
+        }
+    }
+    
+    public function purchase_ticket($data){
+        $this->db->insert('show_ticket', $data);
+        return TRUE;
     }
 }
